@@ -3,7 +3,6 @@ import requests
 from tqdm import tqdm
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from colorama import Fore, Style, init
-import time
 
 # Inicializar colorama
 init(autoreset=True)
