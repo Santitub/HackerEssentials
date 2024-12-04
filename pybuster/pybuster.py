@@ -1,3 +1,6 @@
+#made by Santitub
+#https://github.com/Santitub
+
 import argparse
 import requests
 from tqdm import tqdm
