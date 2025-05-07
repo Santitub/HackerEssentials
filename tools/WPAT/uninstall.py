@@ -5,7 +5,6 @@ import sys
 import subprocess
 
 DEPENDENCIES = [
-    "pipx",
     "colorama",
     "requests",
     "beautifulsoup4",
@@ -13,6 +12,7 @@ DEPENDENCIES = [
     "pyqt5",
     "pyqtwebengine",
     "urllib3"
+    # pipx no se desinstala aquí directamente porque lo usamos abajo
 ]
 
 def run_command(command, shell=False):
@@ -23,21 +23,18 @@ def run_command(command, shell=False):
         print(f"Error while running command: {command}\n{e}")
         sys.exit(1)
 
-def install_dependencies():
-    print("Installing Python dependencies...")
+def remove_dependencies():
+    print("Removing Python dependencies...")
     for package in DEPENDENCIES:
-        run_command([sys.executable, "-m", "pip", "install", package])
+        run_command([sys.executable, "-m", "pip", "uninstall", "-y", package])
 
-def setup_pipx_and_install_wpat():
-    print("\nSetting up pipx and installing WPAT...")
-    run_command([sys.executable, "-m", "pipx", "ensurepath"])
-    run_command(["pipx", "install", "git+https://github.com/Santitub/WPAT.git"])
+    print("\nUninstalling WPAT from pipx...")
+    run_command(["pipx", "uninstall", "wpat"])
 
 def main():
-    print("Installing Python tool...")
-    install_dependencies()
-    setup_pipx_and_install_wpat()
-    print("Python tool installed successfully!")
+    print("Uninstalling Python tool...")
+    remove_dependencies()
+    print("Python tool uninstalled successfully!")
 
 if __name__ == "__main__":
     main()
