@@ -12,16 +12,14 @@ DEPENDENCIES = [
     "pyqt5",
     "pyqtwebengine",
     "urllib3"
-    # pipx no se desinstala aquí directamente porque lo usamos abajo
 ]
 
-def run_command(command, shell=False):
-    """Run a shell command and print output."""
+def run_command(command):
+    """Run a shell command and handle errors gracefully."""
     try:
-        subprocess.run(command, check=True, shell=shell)
+        subprocess.run(command, check=True)
     except subprocess.CalledProcessError as e:
-        print(f"Error while running command: {command}\n{e}")
-        sys.exit(1)
+        print(f"Warning: Could not uninstall {command[-1]} — it may be a system package or already removed.")
 
 def remove_dependencies():
     print("Removing Python dependencies...")
