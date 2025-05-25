@@ -1,1 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: https://cdnjs.cloudflare.com https://img.shields.io https://*.shields.io;">
+    <title>HackerEssentials</title>
+    <!-- Marked.js para renderizado de Markdown -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.0/marked.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="header">
+        <h1>🔧 HackerEssentials</h1>
+        <p>Your Ultimate Cybersecurity Toolkit</p>
+    </div>
 
+    <div class="main-container">
+        <div class="sidebar">
+            <div class="control-panel">
+                <h3>Panel de Control</h3>
+                <button class="btn" onclick="refreshTools()">🔄 Actualizar</button>
+                <button class="btn" onclick="installAllTools()">📦 Instalar Todo</button>
+                <button class="btn btn-danger" onclick="clearOutput()">🗑️ Limpiar Output</button>
+            </div>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="total-tools">0</div>
+                    <div class="stat-label">Total</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="installed-tools">0</div>
+                    <div class="stat-label">Instaladas</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div id="tools-container" class="tools-grid">
+                <div class="loading">Cargando herramientas...</div>
+            </div>
+
+            <div id="output-panel" class="output-panel">
+                <strong>Output del Sistema:</strong><br>
+                <span id="output-content"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para README -->
+    <div id="readme-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeReadmeModal()">&times;</span>
+            <div id="readme-content" class="markdown-content"></div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
