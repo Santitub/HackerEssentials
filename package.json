@@ -1,0 +1,37 @@
+{
+  "name": "hacker-essentials",
+  "version": "1.0.0",
+  "description": "Desktop application for managing hacker tools from GitHub repository",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build": "electron-builder",
+    "pack": "electron-builder --dir",
+    "setup": "node setup.js",
+    "postinstall": "node setup.js"
+  },
+  "keywords": ["electron", "hacker", "tools", "security"],
+  "author": "Santitub",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "fs-extra": "^11.1.1",
+    "dotenv": "^16.3.1"
+  },
+  "build": {
+    "appId": "com.hackeressentials.app",
+    "productName": "HackerEssentials",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "node_modules/**/*"
+    ]
+  }
+}
