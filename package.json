@@ -15,7 +15,7 @@
   "author": "Santitub",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^27.0.0",
+    "electron": "^35.7.5",
     "electron-builder": "^24.6.4"
   },
   "dependencies": {
